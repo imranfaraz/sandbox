@@ -11,17 +11,17 @@ async def test_sandbox(dut):
     cocotb.start_soon(toggle_async_reset(dut))
 
     dut.i_reset_n_sync.value = 1
-    dut.i_d.value = 0xCC
+    dut.i_d.value = 0xC
     await ClockCycles(dut.i_clk, 1)
 
     dut.i_reset_n_sync.value = 0
     await ClockCycles(dut.i_clk, 1)
 
     dut.i_reset_n_sync.value = 1
-    dut.i_d.value = 0xAA
+    dut.i_d.value = 0xA
     await ClockCycles(dut.i_clk, 3)
 
-    dut.i_d.value = 0xFF
+    dut.i_d.value = 0xF
     await ClockCycles(dut.i_clk, 3)
 
 
